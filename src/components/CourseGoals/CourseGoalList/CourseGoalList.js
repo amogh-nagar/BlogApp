@@ -4,14 +4,13 @@ import "./CourseGoalList.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Cardlist from "../../UI/Cardlist";
-import { produceWithPatches } from "@reduxjs/toolkit/node_modules/immer";
 const CourseGoalList = (props) => {
   const blogs = useSelector((state) => state.blogs);
   const deleteHandler = (id) => {
     props.onDeleteItem(id);
   };
   const updateHandler = (id,text) => {
-    
+    console.log(id,text);
     props.update(id, text);
   };
   var showblogs = (

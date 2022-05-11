@@ -2,7 +2,7 @@ import classes from "./Cardlist.module.css";
 import { useState } from "react";
 const Card = (props) => {
   const [editmode, seteditmode] = useState(false);
-  const [text, settext] = useState("");
+  const [text, settext] = useState(props.value);
   const changeedit = () => {
     seteditmode(true);
   };
@@ -15,7 +15,8 @@ const Card = (props) => {
       settext(event.target.value)
   }
   const deletei=()=>{
-    props.deleteHandler(props.id);
+    console.log(props.id);
+    props.deleteHandler(+props.id);
   }
   return (
     <div className={classes.card}>

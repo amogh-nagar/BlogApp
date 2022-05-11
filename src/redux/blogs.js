@@ -13,17 +13,21 @@ const blogslice = createSlice({
     },
     removeblog(state, action) {
       const userid = action.payload;
-      const blog = state.items.find((item) => item.creatorid === userid);
+      console.log(userid);
+      const blog = state.items.find((item) => {
+        console.log(typeof item.id);
+        return item.id == userid.toString()});
       if (!blog) {
         state.iserror = true;
         return;
       }
-      state.items = state.items.filter((item) => item.creatorid !== userid);
+      console.log(blog);
+      state.items = state.items.filter((item) => item.id !== userid.toString());
     },
     replaceblog(state, action) {
       const userid = action.payload.id;
-      const blog = state.items.findIndex((item) => item.creatorid === userid);
-      state.items[blog] = action.payload.text;
+      const blog = state.items.findIndex((item) => item.id === userid.toString());
+      state.items[blog] = {id:userid,text:action.payload.text};
     },
   },
 });
