@@ -1,1 +1,1 @@
-Deployed link - https://github.com/Amoghtech/BlogApp
+Deployed link - https://assignment12345.web.app/
